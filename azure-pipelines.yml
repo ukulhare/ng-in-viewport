@@ -7,15 +7,16 @@ trigger:
 - develop
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows10
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '18.x'
   displayName: 'Install Node.js'
 
-- script: |
+-script: |
+    npm install -g @angular/cli
     npm install
-    npm run build
+    ng build 
   displayName: 'npm install and build'
